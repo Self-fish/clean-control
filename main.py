@@ -17,7 +17,7 @@ if __name__ == '__main__':
     client, address = service.accept()
     while client:
         while True:
-            message = client.recv(1024).decode("uft-8")
+            message = client.recv(1024).decode("UTF-8")
             if message == "COVER_UP":
                 print("We move the motor")
                 handle_cover.cover_up()
