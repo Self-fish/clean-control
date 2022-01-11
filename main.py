@@ -21,8 +21,10 @@ if __name__ == '__main__':
             del message[0]
             del message[0]
             if message.decode("UTF-8") == "COVER_UP":
-                print("We move the motor")
                 handle_cover.cover_up()
+            elif message.decode("UTF-8") == "COVER_DOWN":
+                handle_cover.cover_down()
+
 
     client.close()
     service.close()
