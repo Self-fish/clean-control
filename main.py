@@ -19,11 +19,12 @@ if __name__ == '__main__':
         while True:
             message = bytearray(client.recv(1024))
             del message[0]
+            del message[0]
             if message.decode("UTF-8") == "COVER_UP":
                 print("We move the motor")
                 handle_cover.cover_up()
             print(message)
-            print(bytes("COVER_UP", 'UTF-8'))
+            print(bytearray("COVER_UP".encode()))
     client.close()
     service.close()
 
