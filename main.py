@@ -19,6 +19,7 @@ if __name__ == '__main__':
         while True:
             message = client.recv(1024)
             if message.decode("utf-8") == "COVER_UP":
+                print("We move the motor")
                 handle_cover.cover_up()
             print(message.decode("utf-8"))
     client.close()

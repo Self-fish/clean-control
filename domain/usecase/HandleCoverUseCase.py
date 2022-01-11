@@ -15,5 +15,5 @@ class HandleCoverUseCase:
         self.__motor_controller.move_motor()
 
     def cover_down(self):
-        self.__motor_controller.set_direction_up()
+        self.__motor_controller.set_direction_down()
         self.__motor_controller.move_motor()
