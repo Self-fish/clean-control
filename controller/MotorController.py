@@ -10,16 +10,16 @@ class MotorController:
         self.__step_pin = 26
         self.__steps = 3000
         self.__micro_pause = 0.0005
-        self.__direction = Direction.UP
+        self.__direction = Direction.UP.value
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(self.__direction_pin, GPIO.OUT)
         GPIO.setup(self.__step_pin, GPIO.OUT)
 
     def set_direction_up(self):
-        self.__direction = Direction.UP
+        self.__direction = Direction.UP.value
 
     def set_direction_down(self):
-        self.__direction = Direction.DOWN
+        self.__direction = Direction.DOWN.value
 
     def move_motor(self):
         GPIO.output(self.__direction_pin, self.__direction)
