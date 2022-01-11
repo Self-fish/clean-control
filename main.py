@@ -2,9 +2,15 @@ import socket
 import sys
 
 from Container import Container
+from domain.usecase.HandleCoverUseCase import HandleCoverUseCase
 
+if __name__ == '__main__':
 
-def listen_messages():
+    container = Container()
+    container.wire(modules=[sys.modules[__name__]])
+
+    handle_cover = HandleCoverUseCase()
+
     service = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     service.bind(("", 2000))
     service.listen(1)
@@ -12,13 +18,9 @@ def listen_messages():
     while client:
         while True:
             message = client.recv(1024)
+            if message.decode("utf-8") == "COVER_UP":
+                handle_cover.cover_up()
             print(message.decode("utf-8"))
     client.close()
     service.close()
 
-
-if __name__ == '__main__':
-
-    container = Container()
-    container.wire(modules=[sys.modules[__name__]])
-    listen_messages()
