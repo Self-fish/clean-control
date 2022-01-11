@@ -11,6 +11,7 @@ class MotorController:
         self.__steps = 3000
         self.__micro_pause = 0.0005
         self.__direction = Direction.UP
+        GPIO.setmode(GPIO.BOARD)
         GPIO.setup(self.__direction_pin, GPIO.OUT)
         GPIO.setup(self.__step_pin, GPIO.OUT)
 
