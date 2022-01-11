@@ -22,7 +22,8 @@ if __name__ == '__main__':
             if message.decode("UTF-8") == "COVER_UP":
                 print("We move the motor")
                 handle_cover.cover_up()
-            print(message.decode("UTF-8"))
+            print(message)
+            print(bytearray("COVER_UP"))
     client.close()
     service.close()
 
