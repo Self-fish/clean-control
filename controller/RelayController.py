@@ -9,6 +9,7 @@ class RelayController:
         self.__io = wiringpi.GPIO(wiringpi.GPIO.WPI_MODE_PINS)
         self.__pin = pin
         self.__io.pinMode(self.__pin, self.__io.OUTPUT)
+        self.__io.digitalWrite(self.__pin, self.__io.HIGH)
 
     def update_relay_status(self, relay_status: RelayStatus):
         if relay_status == RelayStatus.ON:
