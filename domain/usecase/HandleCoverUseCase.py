@@ -10,7 +10,7 @@ class HandleCoverUseCase:
 
     @inject
     def __init__(self, motor_controller: MotorController = Provide[Container.motor_controller],
-                 relay_controller: RelayController = Provide[Container.relay_controller]):
+                 relay_controller: RelayController = Provide[Container.cover_relay_controller]):
         self.__motor_controller = motor_controller
         self.__relay_controller = relay_controller
 
