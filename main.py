@@ -19,16 +19,18 @@ if __name__ == '__main__':
     client, address = service.accept()
     while client:
         while True:
-            message = bytearray(client.recv(1024))
-            del message[0]
-            del message[0]
+            message = client.recv(1024)
             if message.decode("UTF-8") == "COVER_UP":
+                print("COVER_UP")
                 handle_cover.cover_up()
             elif message.decode("UTF-8") == "COVER_DOWN":
+                print("COVER_DOWN")
                 handle_cover.cover_down()
             elif message.decode("UTF-8") == "FILLING_BOMB_ON":
+                print("FILLING_BOMB_ON")
                 handle_water_bomb.fill_aquarium()
             elif message.decode("UTF-8") == "FILLING_BOMB_OFF":
+                print("FILLING_BOMB_OFF")
                 handle_water_bomb.stop_filling_aquarium()
 
 
