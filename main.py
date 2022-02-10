@@ -24,19 +24,14 @@ if __name__ == '__main__':
                 message = client.recv(1024)
                 if message:
                     if message.decode("UTF-8") == "COVER_UP":
-                        print("COVER_UP")
                         handle_cover.cover_up()
                     elif message.decode("UTF-8") == "COVER_DOWN":
-                        print("COVER_DOWN")
                         handle_cover.cover_down()
                     elif message.decode("UTF-8") == "FILLING_BOMB_ON":
-                        print("FILLING_BOMB_ON")
                         handle_water_bomb.fill_aquarium()
                     elif message.decode("UTF-8") == "FILLING_BOMB_OFF":
-                        print("FILLING_BOMB_OFF")
                         handle_water_bomb.stop_filling_aquarium()
                 else:
                     break
         finally:
             client.close()
-
