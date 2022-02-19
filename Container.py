@@ -6,6 +6,6 @@ from controller.RelayController import RelayController
 
 class Container(containers.DeclarativeContainer):
     config = providers.Configuration()
-    cover_relay_controller = providers.Factory(RelayController, 3)
+    cover_relay_controller = providers.Factory(RelayController, 4)
     motor_controller = providers.Singleton(MotorController)
-    water_bomb_relay_controller = providers.Factory(RelayController, 5)
+    water_bomb_relay_controller = providers.Factory(RelayController, 3)
