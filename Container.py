@@ -8,4 +8,4 @@ class Container(containers.DeclarativeContainer):
     config = providers.Configuration()
     cover_relay_controller = providers.Factory(RelayController, 4)
     motor_controller = providers.Singleton(MotorController)
-    water_bomb_relay_controller = providers.Factory(RelayController, 3)
+    water_bomb_relay_controller = providers.Factory(RelayController, 5)
