@@ -3,6 +3,7 @@ import sys
 
 from Container import Container
 from domain.usecase.HandleCoverUseCase import HandleCoverUseCase
+from domain.usecase.HandleEmptyBombUseCase import HandleEmptyBombUseCase
 from domain.usecase.HandleFillingBombUseCase import HandleFillingBombUseCase
 
 if __name__ == '__main__':
@@ -12,6 +13,7 @@ if __name__ == '__main__':
 
     handle_cover = HandleCoverUseCase()
     handle_water_bomb = HandleFillingBombUseCase()
+    empty_aquarium_bomb = HandleEmptyBombUseCase()
 
     service = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     service.bind(("", 2000))
@@ -31,6 +33,10 @@ if __name__ == '__main__':
                         handle_water_bomb.fill_aquarium()
                     elif message.decode("UTF-8") == "FILLING_BOMB_OFF":
                         handle_water_bomb.stop_filling_aquarium()
+                    elif message.decode("UTF-8") == "EMPTY_BOMB_ON":
+                        empty_aquarium_bomb.empty_aquarium()
+                    elif message.decode("UTF-8") == "EMPTY_BOMB_OFF":
+                        empty_aquarium_bomb.stop_empty_aquarium()
                 else:
                     break
         finally:

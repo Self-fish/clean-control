@@ -9,3 +9,4 @@ class Container(containers.DeclarativeContainer):
     cover_relay_controller = providers.Factory(RelayController, 4)
     motor_controller = providers.Singleton(MotorController)
     water_bomb_relay_controller = providers.Factory(RelayController, 5)
+    empty_bomb_relay_controller = providers.Factory(RelayController, 3)
