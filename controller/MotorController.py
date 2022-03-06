@@ -2,14 +2,19 @@ import time
 import RPi.GPIO as GPIO
 from controller.Direction import Direction
 
+DIRECTION_PIN = 24
+STEP_PIN = 26
+NUMBER_OF_STEPS = 3000
+MICRO_PAUSE = 0.0005
+
 
 class MotorController:
 
     def __init__(self):
-        self.__direction_pin = 24
-        self.__step_pin = 26
-        self.__steps = 3000
-        self.__micro_pause = 0.0005
+        self.__direction_pin = DIRECTION_PIN
+        self.__step_pin = STEP_PIN
+        self.__steps = NUMBER_OF_STEPS
+        self.__micro_pause = MICRO_PAUSE
         self.__direction = Direction.UP.value
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(self.__direction_pin, GPIO.OUT)
