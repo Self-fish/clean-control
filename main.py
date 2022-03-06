@@ -6,6 +6,7 @@ from domain.usecase.HandleCoverUseCase import HandleCoverUseCase
 from domain.usecase.HandleEmptyBombUseCase import HandleEmptyBombUseCase
 from domain.usecase.HandleFillingBombUseCase import HandleFillingBombUseCase
 
+CLEAN_SOCKET_PORT = 2000
 COVER_UP_STEP = "COVER_UP"
 COVER_DOWN_STEP = "COVER_DOWN"
 FILLING_BOMB_ON_STEP = "FILLING_BOMB_ON"
@@ -23,7 +24,7 @@ if __name__ == '__main__':
     empty_aquarium_bomb = HandleEmptyBombUseCase()
 
     service = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    service.bind(("", 2000))
+    service.bind(("", CLEAN_SOCKET_PORT))
     service.listen(1)
 
     while True:
